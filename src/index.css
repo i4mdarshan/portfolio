@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 100% 70%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 320 100% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 280 100% 70%;
+
+    --radius: 1rem;
+
+    /* Energetic gradient colors - vibrant and lively */
+    --gradient-purple: 280 100% 70%;
+    --gradient-pink: 320 100% 65%;
+    --gradient-cyan: 200 100% 60%;
+    --gradient-blue: 240 100% 65%;
+    --gradient-yellow: 50 100% 65%;
+
+    /* Custom gradients - energetic and minimal with smooth interpolation */
+    --gradient-rainbow: linear-gradient(135deg in oklch, 
+      hsl(var(--gradient-purple)) 0%, 
+      hsl(var(--gradient-pink)) 20%,
+      hsl(var(--gradient-cyan)) 40%, 
+      hsl(var(--gradient-blue)) 60%,
+      hsl(var(--gradient-pink)) 80%,
+      hsl(var(--gradient-purple)) 100%);
+    
+    --gradient-subtle: linear-gradient(135deg in oklch, 
+      hsl(var(--gradient-purple) / 0.25) 0%, 
+      hsl(var(--gradient-cyan) / 0.25) 100%);
+
+    /* Glass effect - enhanced */
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+
+    /* Shadows with gradient glow */
+    --shadow-glow: 0 0 60px hsl(var(--gradient-purple) / 0.4);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+}
+
+/* Smooth scroll with easing */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Glass morphism utility - enhanced */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

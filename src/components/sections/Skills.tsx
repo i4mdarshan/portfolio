@@ -51,7 +51,7 @@ const Skills = () => {
         />
 
         {/* Animated skill cloud - no rotation on hover */}
-        <div className="flex flex-wrap gap-4 justify-center items-center max-w-5xl mx-auto">
+        <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center max-w-5xl mx-auto">
           {skills.map((skill, index) => {
             const delay = index * 0.05;
             const animationDuration = 6 + (index % 3) * 2;
@@ -75,9 +75,9 @@ const Skills = () => {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="px-6 py-3 rounded-full glass cursor-pointer hover:shadow-glow transition-all duration-200"
+                  className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full glass cursor-pointer hover:shadow-glow transition-all duration-200 min-w-[80px] flex items-center justify-center"
                 >
-                  <span className="font-medium">{skill.name}</span>
+                  <span className="text-base sm:text-lg md:text-xl font-semibold text-foreground whitespace-nowrap">{skill.name}</span>
                   
                   {/* Tooltip on hover */}
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 glass rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">

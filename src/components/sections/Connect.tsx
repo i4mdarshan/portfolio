@@ -18,21 +18,21 @@ const Connect = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com",
+      url: "https://github.com/i4mdarshan",
       gradient: "from-slate-500/20 to-slate-500/5",
       description: "Check out my code",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/darshan-mahajan/",
       gradient: "from-steel-500/20 to-steel-500/5",
       description: "Let's connect professionally",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:darshan@example.com",
+      url: "mailto:m.darshan.tech@gmail.com",
       gradient: "from-mist-500/20 to-mist-500/5",
       description: "Send me a message",
     },
@@ -88,14 +88,15 @@ const Connect = () => {
           {/* Social links */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {socialLinks.map((link, index) => {
+              const progressFactor = 1;
               const linkY = useTransform(
                 scrollYProgress,
-                [0.2 + index * 0.1, 0.5 + index * 0.1],
+                [0.2 + progressFactor * 0.1, 0.5 + progressFactor * 0.1],
                 [30, 0]
               );
               const linkOpacity = useTransform(
                 scrollYProgress,
-                [0.2 + index * 0.1, 0.4 + index * 0.1],
+                [0.2 + progressFactor * 0.1, 0.4 + progressFactor * 0.1],
                 [0, 1]
               );
 
@@ -138,7 +139,7 @@ const Connect = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
           >
             <a
-              href="mailto:darshan@example.com"
+              href="mailto:m.darshan.tech@gmail.com"
               className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-rainbow text-white font-display font-semibold rounded-full hover:shadow-glow transition-all duration-200 hover:scale-105 text-lg"
             >
               Start a Conversation

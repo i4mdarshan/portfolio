@@ -34,25 +34,27 @@ const Index = () => {
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <Navbar />
 
-        {/* Top Marquee Banner */}
-        <div className="fixed top-0 left-0 right-0 z-30 pt-20 md:pt-24 pointer-events-none">
-          <div className="glass border-y border-border/50 py-3 overflow-hidden">
-            <Marquee speed="fast">
-              {skills.map((skill, index) => (
-                <span
-                  key={index}
-                  className="mx-6 text-sm md:text-base font-medium text-muted-foreground whitespace-nowrap"
-                >
-                  {skill}
-                </span>
-              ))}
-            </Marquee>
-          </div>
-        </div>
 
         <main>
           <Hero />
           <Experience />
+          
+          {/* Skills Marquee Banner */}
+          <div className="relative z-10 w-full">
+            <div className="glass border-y border-border/50 py-4 overflow-hidden">
+              <Marquee speed="fast">
+                {skills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="mx-4 sm:mx-6 text-xs sm:text-sm md:text-base font-medium text-muted-foreground whitespace-nowrap"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </Marquee>
+            </div>
+          </div>
+          
           <Projects />
           <Skills />
           <Certificates />

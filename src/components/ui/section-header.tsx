@@ -18,9 +18,9 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: SectionHeaderProps) => {
     >
       <div className="flex items-center justify-center gap-3 mb-4">
         <div className="glass p-3 rounded-full">
-          <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+          <Icon className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
         </div>
-        <h2 className="font-display text-3xl md:text-5xl font-bold">
+        <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
           {title}
         </h2>
       </div>

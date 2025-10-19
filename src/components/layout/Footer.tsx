@@ -17,7 +17,7 @@ const Footer = () => {
           {taglines.map((text, index) => (
             <span
               key={index}
-              className="mx-8 font-display text-4xl md:text-6xl lg:text-8xl font-bold bg-gradient-rainbow bg-clip-text text-transparent whitespace-nowrap"
+              className="mx-8 font-display text-4xl md:text-6xl lg:text-8xl font-bold text-foreground whitespace-nowrap"
             >
               {text}
             </span>
@@ -28,7 +28,7 @@ const Footer = () => {
           {taglines.map((text, index) => (
             <span
               key={index}
-              className="mx-8 font-display text-4xl md:text-6xl lg:text-8xl font-bold text-muted-foreground/20 whitespace-nowrap"
+              className="mx-8 font-display text-4xl md:text-6xl lg:text-8xl font-bold text-muted-foreground/30 whitespace-nowrap"
             >
               {text}
             </span>

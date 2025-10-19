@@ -17,13 +17,10 @@ export default {
         sans: ['Inter', 'sans-serif'],
         display: ['Space Grotesk', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-rainbow': 'var(--gradient-rainbow)',
-        'gradient-subtle': 'var(--gradient-subtle)',
-      },
       boxShadow: {
-        'glow': 'var(--shadow-glow)',
+        'subtle': 'var(--shadow-subtle)',
         'card': 'var(--shadow-card)',
+        'glass': 'var(--shadow-glass)',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -98,12 +95,7 @@ export default {
         },
         glow: {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
-        },
-        gradient: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
+          "50%": { opacity: "0.7" },
         },
         marquee: {
           "0%": { transform: "translateX(0%)" },
@@ -123,7 +115,6 @@ export default {
         "accordion-up": "accordion-up 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
         "float": "float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite",
         "glow": "glow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite",
-        "gradient": "gradient 12s cubic-bezier(0.4, 0, 0.2, 1) infinite",
         "marquee": "marquee var(--duration, 40s) linear infinite",
         "text-shimmer": "text-shimmer 3s ease-in-out infinite",
         "text-reveal": "text-reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",

@@ -54,6 +54,80 @@ const projects = [
   },
 ];
 
+const ProjectCard: React.FC<{
+  project: typeof projects[number];
+  index: number;
+  scrollYProgress: any;
+}> = ({ project, index, scrollYProgress }) => {
+  const progressFactor = 1;
+  const cardY = useTransform(
+    scrollYProgress,
+    [0.3 + index * 0.02, 0.6 + index * 0.02],
+    [80, 0]
+  );
+  const cardRotate = useTransform(
+    scrollYProgress,
+    [0.3 + progressFactor * 0.02, 0.5 + progressFactor * 0.02],
+    [5, 0]
+  );
+
+  return (
+    <motion.div
+      key={project.title}
+      style={{ y: cardY }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      whileHover={{ scale: 1.02, y: -5, rotate: 0 }}
+      className="relative p-6 rounded-2xl glass group cursor-pointer overflow-hidden"
+    >
+      {/* Hover gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-rainbow opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
+
+      <div className="relative">
+        <div className="flex items-start justify-between mb-4">
+          <span className="px-3 py-1 text-xs font-medium rounded-full glass">
+            {project.category}
+          </span>
+          <div className="flex gap-2">
+            <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
+              <Github className="w-4 h-4" />
+            </button>
+            <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
+              <ExternalLink className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        <h3 className="font-display text-xl font-semibold mb-2">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground text-sm mb-4">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-1 text-xs rounded-md glass"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="pt-4 border-t border-border">
+          <p className="text-sm font-medium bg-gradient-rainbow bg-clip-text text-transparent">
+            {project.impact}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects = () => {
   const ref = useRef(null);
   const [filter, setFilter] = useState<"All" | "Professional" | "Personal">("All");
@@ -96,74 +170,14 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => {
-            const cardY = useTransform(
-              scrollYProgress,
-              [0.3 + index * 0.02, 0.6 + index * 0.02],
-              [80, 0]
-            );
-            const cardRotate = useTransform(
-              scrollYProgress,
-              [0.3 + index * 0.02, 0.5 + index * 0.02],
-              [5, 0]
-            );
-
-            return (
-              <motion.div
-                key={project.title}
-                style={{ y: cardY, rotate: cardRotate }}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ scale: 1.02, y: -5, rotate: 0 }}
-                className="relative p-6 rounded-2xl glass group cursor-pointer overflow-hidden"
-              >
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-rainbow opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
-
-                <div className="relative">
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="px-3 py-1 text-xs font-medium rounded-full glass">
-                      {project.category}
-                    </span>
-                    <div className="flex gap-2">
-                      <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
-                        <Github className="w-4 h-4" />
-                      </button>
-                      <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
-                        <ExternalLink className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <h3 className="font-display text-xl font-semibold mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs rounded-md glass"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-4 border-t border-border">
-                    <p className="text-sm font-medium bg-gradient-rainbow bg-clip-text text-transparent">
-                      {project.impact}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {filteredProjects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+              scrollYProgress={scrollYProgress}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -26,11 +26,10 @@ const Navbar = () => {
   ];
 
   const handleDownloadResume = () => {
-    // Replace with actual resume URL
-    const resumeUrl = "/resume.pdf";
+    const resumeUrl = `${import.meta.env.BASE_URL}/resume/Darshan_Nilesh_Mahajan_Resume.pdf`;
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Darshan_Mahajan_Resume.pdf";
+    link.download = "Darshan_Nilesh_Mahajan_Resume.pdf";
     link.click();
   };
 
@@ -55,7 +54,7 @@ const Navbar = () => {
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <div className="flex items-center justify-between px-4 md:px-6">
-            <a href="#" className="font-display text-lg md:text-xl font-bold bg-gradient-rainbow bg-clip-text text-transparent">
+            <a href="#" className="font-display text-lg md:text-xl font-bold text-foreground">
               DM
             </a>
 

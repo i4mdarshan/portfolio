@@ -18,7 +18,7 @@ const Loader = ({ onComplete }: LoaderProps) => {
         }
         return prev + 2;
       });
-    }, 20);
+    }, 30);
 
     return () => clearInterval(timer);
   }, [onComplete]);
@@ -37,8 +37,8 @@ const Loader = ({ onComplete }: LoaderProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="bg-gradient-rainbow bg-clip-text text-transparent">
-            DM
+          <span className="bg-foreground bg-clip-text text-transparent">
+            Darshan Mahajan
           </span>
         </motion.div>
 

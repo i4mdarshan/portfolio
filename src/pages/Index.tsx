@@ -14,17 +14,25 @@ import Marquee from "@/components/ui/marquee";
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const skills = [
-    "React",
-    "TypeScript",
-    "Python",
-    "AWS",
-    "Docker",
-    "Node.js",
-    "Machine Learning",
-    "Cloud Architecture",
-    "UI/UX Design",
-    "Data Science",
+  const iconUrls = [
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/djangorest/djangorest-original-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-line-wordmark.svg",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
+
   ];
 
   return (
@@ -43,13 +51,13 @@ const Index = () => {
           <div className="relative z-10 w-full">
             <div className="glass border-y border-border/50 py-4 overflow-hidden">
               <Marquee speed="fast">
-                {skills.map((skill, index) => (
-                  <span
+                {iconUrls.map((url, index) => (
+                  <div
                     key={index}
-                    className="mx-4 sm:mx-6 text-xs sm:text-sm md:text-base font-medium text-muted-foreground whitespace-nowrap"
+                    className="mx-6 sm:mx-8 md:mx-10 flex items-center gap-3"
                   >
-                    {skill}
-                  </span>
+                    <img src={url} alt="tech icon" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
+                  </div>
                 ))}
               </Marquee>
             </div>

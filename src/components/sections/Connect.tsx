@@ -156,7 +156,7 @@ const Connect = () => {
           >
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-sm text-muted-foreground">
-              Available for freelance projects
+              Available for Summer 2026 Internships
             </span>
           </motion.div>
         </motion.div>

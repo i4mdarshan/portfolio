@@ -5,9 +5,14 @@ import { Download, Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
-  const navWidth = useTransform(scrollYProgress, [0, 0.1], ["95%", "70%"]);
-  const navPadding = useTransform(scrollYProgress, [0, 0.1], ["1rem", "0.75rem"]);
+  const { scrollY, scrollYProgress } = useScroll();
+  const navWidth = useTransform(scrollYProgress, [0, 0.1, 1], ["95%", "50%", "50%"]);
+  const navPadding = useTransform(scrollY, [0, 0.1], ["1rem", "0.75rem"]);
+  const translateX = useTransform(
+    scrollYProgress,
+    [0, 0.1, 1],
+    ["0%", "-50%", "-50%"]
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +43,7 @@ const Navbar = () => {
       {/* Scroll progress indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-rainbow origin-left z-50"
-        style={{ scaleX: scrollYProgress }}
+        style={{ transform: `translateX(${translateX})` }}
       />
 
       {/* Floating Pill Navbar */}
@@ -48,10 +53,11 @@ const Navbar = () => {
           style={{ 
             width: navWidth,
             padding: navPadding,
+            // transform: `translateX(${translateX})`
           }}
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <div className="flex items-center justify-between px-4 md:px-6">
             <a href="#" className="font-display text-lg md:text-xl font-bold text-foreground">

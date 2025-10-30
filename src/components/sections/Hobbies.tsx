@@ -13,93 +13,64 @@ import SectionHeader from "@/components/ui/section-header";
 import DomeGallery from "./DomeGallery";
 
 // Sample gallery images - replace with actual paths
-const photographyGallery = [
-  {
-    id: 1,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Landscape photography",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 2,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Portrait photography",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 3,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Street photography",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 4,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Nature photography",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 5,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Urban photography",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 6,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Abstract photography",
-    aspectRatio: "7/5",
-  },
-];
+// const photographyGallery = [
+//   {
+//     id: 1,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Landscape photography",
+//     aspectRatio: "7/5",
+//   },
+//   {
+//     id: 2,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Portrait photography",
+//     aspectRatio: "7/5",
+//   },
+//   {
+//     id: 3,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Street photography",
+//     aspectRatio: "7/5",
+//   },
+//   {
+//     id: 4,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Nature photography",
+//     aspectRatio: "7/5",
+//   },
+//   {
+//     id: 5,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Urban photography",
+//     aspectRatio: "7/5",
+//   },
+//   {
+//     id: 6,
+//     src: `${import.meta.env.BASE_URL}/photos/IMG_6832.jpeg`,
+//     alt: "Abstract photography",
+//     aspectRatio: "7/5",
+//   },
+// ];
 
-const digitalArtGallery = [
-  {
-    id: 1,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 1",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 2,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 2",
-    aspectRatio: "4/5",
-  },
-  {
-    id: 3,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 3",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 4,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 4",
-    aspectRatio: "4/5",
-  },
-  {
-    id: 5,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 5",
-    aspectRatio: "7/5",
-  },
-  {
-    id: 6,
-    src: "/photos/IMG_6832.jpeg",
-    alt: "Digital illustration 6",
-    aspectRatio: "4/5",
-  },
-];
+const photographyGallery = [];
 
-const hobbies = [
-  {
-    title: "Music Production",
-    description:
-      "Composing ambient soundscapes that inspire focus and creativity",
-    icon: Music,
-    quote: "Code in silence, create in sound",
-  },
-];
+const START_NUMBER = 3000;
+const END_NUMBER = 3033;
+
+for (let i = START_NUMBER; i <= END_NUMBER; i++) {
+  // Use a sequential ID starting from 1
+  const sequentialId = i - START_NUMBER + 1;
+
+  photographyGallery.push({
+    id: sequentialId,
+    // Construct the full path using the current image number
+    src: `${import.meta.env.BASE_URL}/photos/IMG_${i}.jpg`,
+    // Create a descriptive alt text
+    alt: `Gallery photo IMG_${i}`,
+    // Maintain the original aspect ratio
+    aspectRatio: "7/5",
+  });
+}
 
 const Hobbies = () => {
   const ref = useRef(null);
@@ -213,10 +184,14 @@ const Hobbies = () => {
             </div>
           </div> */}
             <div
-              className="md:-ml-14"
-              style={{ width: "100vw", height: "100vh", background: "var(--background)" }}
+              className='md:-ml-14'
+              style={{
+                width: "100vw",
+                height: "100vh",
+                background: "var(--background)",
+              }}
             >
-              <DomeGallery grayscale={false} />{" "}
+              <DomeGallery images={photographyGallery} grayscale={false} />{" "}
             </div>
           </div>
           <p className='text-muted-foreground mt-6 text-center italic'>

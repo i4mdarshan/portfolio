@@ -2,12 +2,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, FolderGit2 } from "lucide-react";
 import SectionHeader from "@/components/ui/section-header";
+import VideoStory from "@/components/ui/video-story";
 
 const projects = [
   {
     title: "Billing System Architecture",
     category: "Professional",
-    description: "Scalable billing platform processing millions in transactions",
+    description:
+      "Scalable billing platform processing millions in transactions",
     tech: ["React", "Node.js", "PostgreSQL", "AWS"],
     impact: "Reduced processing time by 60%",
     gradient: "from-slate-500/10 to-slate-500/5",
@@ -55,7 +57,7 @@ const projects = [
 ];
 
 const ProjectCard: React.FC<{
-  project: typeof projects[number];
+  project: (typeof projects)[number];
   index: number;
   scrollYProgress: any;
 }> = ({ project, index, scrollYProgress }) => {
@@ -80,46 +82,43 @@ const ProjectCard: React.FC<{
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ scale: 1.02, y: -5, rotate: 0 }}
-      className="relative p-6 rounded-2xl glass group cursor-pointer overflow-hidden"
+      className='relative p-6 rounded-2xl glass group cursor-pointer overflow-hidden'
     >
       {/* Hover gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-rainbow opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
+      <div className='absolute inset-0 bg-gradient-rainbow opacity-0 group-hover:opacity-10 transition-opacity duration-200' />
 
-      <div className="relative">
-        <div className="flex items-start justify-between mb-4">
-          <span className="px-3 py-1 text-xs font-medium rounded-full glass">
+      <div className='relative'>
+        <div className='flex items-start justify-between mb-4'>
+          <span className='px-3 py-1 text-xs font-medium rounded-full glass'>
             {project.category}
           </span>
-          <div className="flex gap-2">
-            <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
-              <Github className="w-4 h-4" />
+          <div className='flex gap-2'>
+            <button className='w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200'>
+              <Github className='w-4 h-4' />
             </button>
-            <button className="w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200">
-              <ExternalLink className="w-4 h-4" />
+            <button className='w-8 h-8 rounded-lg glass flex items-center justify-center hover:bg-gradient-rainbow hover:text-white transition-all duration-200'>
+              <ExternalLink className='w-4 h-4' />
             </button>
           </div>
         </div>
 
-        <h3 className="font-display text-xl font-semibold mb-2">
+        <h3 className='font-display text-xl font-semibold mb-2'>
           {project.title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4">
+        <p className='text-muted-foreground text-sm mb-4'>
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className='flex flex-wrap gap-2 mb-4'>
           {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 text-xs rounded-md glass"
-            >
+            <span key={tech} className='px-2 py-1 text-xs rounded-md glass'>
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="pt-4 border-t border-border">
-          <p className="text-sm font-medium bg-gradient-rainbow bg-clip-text text-transparent">
+        <div className='pt-4 border-t border-border'>
+          <p className='text-sm font-medium bg-gradient-rainbow bg-clip-text text-transparent'>
             {project.impact}
           </p>
         </div>
@@ -130,7 +129,9 @@ const ProjectCard: React.FC<{
 
 const Projects = () => {
   const ref = useRef(null);
-  const [filter, setFilter] = useState<"All" | "Professional" | "Personal">("All");
+  const [filter, setFilter] = useState<"All" | "Professional" | "Personal">(
+    "All"
+  );
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -141,16 +142,30 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative overflow-hidden bg-secondary/20" ref={ref}>
-      <div className="container mx-auto px-6">
-        <SectionHeader 
+    <section
+      id='projects'
+      className='py-24 md:py-32 relative overflow-hidden bg-secondary/20'
+      ref={ref}
+    >
+      <div className='container mx-auto px-6'>
+        <SectionHeader
           icon={FolderGit2}
-          title="Featured Projects"
-          subtitle="From enterprise solutions to creative experiments"
+          title='Featured Projects'
+          subtitle='From enterprise solutions to creative experiments'
         />
 
+        {/* Video Story - Center top */}
+        <div className='flex justify-center mb-12'>
+          <VideoStory
+            videoUrl='/videos/projects.mp4'
+            sectionId='projects'
+            position='center'
+            className='w-[90%] sm:w-[400px] lg:w-[450px]'
+          />
+        </div>
+
         {/* Filter buttons */}
-        <div className="flex gap-4 justify-center flex-wrap mb-12">
+        <div className='flex gap-4 justify-center flex-wrap mb-12'>
           {["All", "Professional", "Personal"].map((f) => (
             <motion.button
               key={f}
@@ -169,7 +184,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredProjects.map((project, index) => (
             <ProjectCard
               key={project.title}

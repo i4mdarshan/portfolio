@@ -78,7 +78,7 @@ const Navbar = () => {
               ))}
               
               {/* Resume Download Button */}
-              <motion.button
+              {/* <motion.button
                 onClick={handleDownloadResume}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -89,7 +89,7 @@ const Navbar = () => {
                   <Download className="w-4 h-4" />
                   <span className="text-sm font-medium">Resume</span>
                 </div>
-              </motion.button>
+              </motion.button> */}
             </div>
 
             {/* Mobile Menu Button - Unique Design */}
@@ -142,7 +142,7 @@ const Navbar = () => {
               {item.name}
             </motion.a>
           ))}
-          <motion.button
+          {/* <motion.button
             onClick={() => {
               handleDownloadResume();
               setIsMobileMenuOpen(false);
@@ -156,7 +156,7 @@ const Navbar = () => {
           >
             <Download className="w-5 h-5" />
             Download Resume
-          </motion.button>
+          </motion.button> */}
         </div>
       </motion.div>
     </>

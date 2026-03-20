@@ -4,25 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Darshan Mahajan - Developer & Creator</title>
-    <meta name="description" content="Developer by trade, creator at heart—blending logic and art." />
+    <meta
+      name="description"
+      content="Developer by trade, creator at heart—blending logic and art."
+    />
     <meta name="author" content="Darshan Mahajan" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <meta property="og:title" content="Darshan Mahajan - Developer & Creator" />
-    <meta property="og:description" content="Developer by trade, creator at heart—blending logic and art." />
+    <meta
+      property="og:description"
+      content="Developer by trade, creator at heart—blending logic and art."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta
+      property="og:image"
+      content="https://lovable.dev/opengraph-image-p98pqg.png"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta
+      name="twitter:image"
+      content="https://lovable.dev/opengraph-image-p98pqg.png"
+    />
     <script type="module" crossorigin src="/portfolio/assets/index-CAyBqjJS.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CwwlDITM.css">
   </head>
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var REPO = "/portfolio";
+
+        var search = window.location.search;
+
+        if (search.startsWith("?p=")) {
+          // Decode the route that 404.html encoded
+          // e.g. ?p=%2Fdata-viz  →  /data-viz
+          var route = decodeURIComponent(search.slice(3));
+          var hash = window.location.hash;
+
+          // Restore the full clean URL: /portfolio/data-viz
+          // history.replaceState does NOT trigger a page reload —
+          // React Router will boot and see the correct pathname.
+          window.history.replaceState(null, "", REPO + route + hash);
+        }
+      })();
+    </script>
   </body>
 </html>

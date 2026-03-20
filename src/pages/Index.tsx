@@ -37,7 +37,7 @@ const Index = () => {
 
   return (
     <>
-      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+      {/* {isLoading && <Loader onComplete={() => setIsLoading(false)} />} */}
 
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <Navbar />

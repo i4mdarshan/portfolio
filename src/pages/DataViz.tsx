@@ -335,7 +335,7 @@ const DataViz = () => {
           {/* ══ BACK BUTTON ════════════════════════════════════════════════════ */}
           <div className='container mx-auto max-w-6xl px-6 pt-24 pb-0'>
             <motion.a
-              href='/#projects'
+              href='/portfolio/#projects'
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}

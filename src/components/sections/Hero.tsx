@@ -31,10 +31,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           >
-            Developer by trade, creator at heart
+            Developer by trade
             <br />
             <span className="text-foreground font-medium">
-              blending logic and art.
+              while blending logic and art.
             </span>
           </motion.p>
 
@@ -46,19 +46,20 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              className="px-8 py-3 glass text-foreground rounded-full font-medium hover:shadow-card hover:bg-white/10 transition-all duration-300 ease-out"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              className="px-8 py-3 glass text-foreground rounded-full font-medium hover:shadow-card hover:bg-white/10"
+              // whileHover={{ scale: 1.05 }}
+              // whileTap={{ scale: 0.95 }}
+              // transition={{ duration: 0.2 }}
             >
               View Work
             </motion.a>
             <motion.a
               href="#connect"
-              className="px-8 py-3 glass text-foreground rounded-full font-medium hover:shadow-card hover:bg-white/10 transition-all duration-300 ease-out"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              className="px-8 py-3 glass text-zinc-800 rounded-full font-medium hover:shadow-card hover:bg-white/10"
+              // whileHover={{ scale: 1.03 }}
+              // whileTap={{ scale: 0.95 }}
+              // transition={{ duration: 0.05 }}
+              style={{ backgroundColor: "var(--primary-button)" }}
             >
               Let's Connect
             </motion.a>

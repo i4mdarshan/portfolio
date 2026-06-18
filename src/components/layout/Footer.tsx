@@ -38,7 +38,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="container mx-auto px-6 py-8 border-t border-border">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <motion.p
             className="text-sm text-muted-foreground"
             initial={{ opacity: 0 }}
@@ -46,11 +46,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            © {new Date().getFullYear()} Darshan Mahajan. Built with ❤️ and code.
+            © {new Date().getFullYear()} Darshan Mahajan. Built with ❤️ and code
           </motion.p>
           
           <div className="flex gap-6">
-            <a
+            {/* <a
               href="#"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
@@ -67,7 +67,7 @@ const Footer = () => {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Get in Touch
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

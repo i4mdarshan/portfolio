@@ -94,7 +94,7 @@ const allProjects: Project[] = [
     tech: ["React", "Node.js", "PostgreSQL", "AWS"],
     impact: "60%",
     impactLabel: "reduction in processing time",
-    href: "/portfolio/project-details",
+    href: "",
   },
   {
     order: 2,

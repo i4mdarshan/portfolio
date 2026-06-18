@@ -1,4 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef, useState } from "react";
 import {
   ExternalLink,
@@ -600,7 +605,6 @@ const ExpandedTile: React.FC<{ project: Project; onClose: () => void }> = ({
           </motion.button>
         </div>
       </div>
-
     </motion.div>
   );
 };
@@ -614,6 +618,14 @@ const Projects: React.FC = () => {
   const [expandedPos, setExpandedPos] = useState<number | null>(0); // first tile active on load
   const [page, setPage] = useState(0);
   const [pageDir, setPageDir] = useState(1);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const titleY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   const filtered =
     activeDomain === "All"
@@ -661,7 +673,10 @@ const Projects: React.FC = () => {
       className='py-24 md:py-32 relative overflow-hidden bg-secondary/20'
       ref={ref}
     >
-      <div className='container mx-auto px-6'>
+      <motion.div
+        className='container mx-auto px-6'
+        style={{ y: titleY, opacity: titleOpacity }}
+      >
         <SectionHeader
           icon={FolderGit2}
           title='Featured Projects'
@@ -754,7 +769,7 @@ const Projects: React.FC = () => {
                         delay: isExpanded ? 0 : 0.04,
                       }}
                     >
-                      <AnimatePresence mode="wait">
+                      <AnimatePresence mode='wait'>
                         {isExpanded ? (
                           <ExpandedTile
                             key='expanded'
@@ -836,7 +851,7 @@ const Projects: React.FC = () => {
             </motion.button>
           </motion.div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -31,31 +31,41 @@ const Skills = () => {
     offset: ["start end", "end start"],
   });
 
+  const titleY = useTransform(scrollYProgress, [0, 0.3], [50, 0]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
   return (
-    <section id="skills" className="py-24 md:py-32 relative overflow-hidden" ref={ref}>
+    <section
+      id='skills'
+      className='py-24 md:py-32 relative overflow-hidden'
+      ref={ref}
+    >
       {/* Background gradient orbs with parallax */}
-      <motion.div 
+      <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
-        className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-subtle rounded-full blur-3xl opacity-50" 
+        className='absolute top-0 left-1/4 w-96 h-96 bg-gradient-subtle rounded-full blur-3xl opacity-50'
       />
-      <motion.div 
+      <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-subtle rounded-full blur-3xl opacity-50" 
+        className='absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-subtle rounded-full blur-3xl opacity-50'
       />
 
-      <div className="container mx-auto px-6 relative">
-        <SectionHeader 
+      <motion.div
+        className='container mx-auto px-6 relative'
+        style={{ y: titleY, opacity: titleOpacity }}
+      >
+        <SectionHeader
           icon={Zap}
-          title="Skills & Expertise"
-          subtitle="A diverse toolkit for building exceptional digital experiences"
+          title='Skills & Expertise'
+          subtitle='A diverse toolkit for building exceptional digital experiences'
         />
 
         {/* Animated skill cloud - no rotation on hover */}
-        <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center max-w-5xl mx-auto">
+        <div className='flex flex-wrap gap-3 sm:gap-4 justify-center items-center max-w-5xl mx-auto'>
           {skills.map((skill, index) => {
             const delay = index * 0.05;
             const animationDuration = 6 + (index % 3) * 2;
-            
+
             return (
               <motion.div
                 key={skill.name}
@@ -64,7 +74,7 @@ const Skills = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.3, delay }}
                 whileHover={{ scale: 1.1 }}
-                className="relative group"
+                className='relative group'
               >
                 <motion.div
                   animate={{
@@ -75,23 +85,27 @@ const Skills = () => {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full glass cursor-pointer hover:shadow-glow transition-all duration-200 min-w-[80px] flex items-center justify-center"
+                  className='px-5 py-2.5 sm:px-6 sm:py-3 rounded-full glass cursor-pointer hover:shadow-glow transition-all duration-200 min-w-[80px] flex items-center justify-center'
                 >
-                  <span className="text-base sm:text-lg md:text-xl font-semibold text-foreground whitespace-nowrap">{skill.name}</span>
-                  
+                  <span className='text-base sm:text-lg md:text-xl font-semibold text-foreground whitespace-nowrap'>
+                    {skill.name}
+                  </span>
+
                   {/* Tooltip on hover */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 glass rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                    <div className="text-xs text-muted-foreground mb-1">
+                  <div className='absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 glass rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10'>
+                    <div className='text-xs text-muted-foreground mb-1'>
                       {skill.category}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
+                    <div className='flex items-center gap-2'>
+                      <div className='w-24 h-1.5 bg-muted rounded-full overflow-hidden'>
                         <div
-                          className="h-full bg-gradient-rainbow"
+                          className='h-full bg-gradient-rainbow'
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>
-                      <span className="text-xs font-medium">{skill.level}%</span>
+                      <span className='text-xs font-medium'>
+                        {skill.level}%
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -106,16 +120,18 @@ const Skills = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="mt-16 flex flex-wrap gap-4 justify-center"
+          className='mt-16 flex flex-wrap gap-4 justify-center'
         >
-          {["Frontend", "Backend", "Cloud", "ML/AI", "DevOps", "Database"].map((cat) => (
-            <div key={cat} className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-gradient-rainbow" />
-              <span className="text-sm text-muted-foreground">{cat}</span>
-            </div>
-          ))}
+          {["Frontend", "Backend", "Cloud", "ML/AI", "DevOps", "Database"].map(
+            (cat) => (
+              <div key={cat} className='flex items-center gap-2'>
+                <div className='w-2 h-2 rounded-full bg-gradient-rainbow' />
+                <span className='text-sm text-muted-foreground'>{cat}</span>
+              </div>
+            ),
+          )}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
